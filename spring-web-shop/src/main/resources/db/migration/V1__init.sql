@@ -1,16 +1,35 @@
+--create table product_category
+--(
+--   id          bigserial primary key,
+--   name        varchar(255) not null
+--);
+--
+--insert into product_category (name)
+--values ('meat'),
+--       ('pastry');
+
 create table products
 (
-    id         bigserial primary key,
-    title      varchar(255),
-    price      int,
-    created_at timestamp default current_timestamp,
-    updated_at timestamp default current_timestamp
+    id           bigserial primary key,
+    title        varchar(255),
+--    category_id  bigint not null references product_category (id),
+    price        int,
+    created_at   timestamp default current_timestamp,
+    updated_at   timestamp default current_timestamp
 );
 
-insert into products (title, price)
-values ('Milk', 100),
-       ('Bread', 80),
-       ('Cheese', 90);
+insert into products (title, price,category_id)
+values ('Beef', 88, 1),
+       ('Pork', 77, 1),
+       ('Bacon', 90, 1),
+       ('Mutton', 105, 1),
+       ('Duck', 90, 1),
+       ('Donut', 15, 2),
+       ('Waffle', 20, 2),
+       ('Pie', 66, 2),
+       ('Cake', 35, 2),
+       ('Brownie', 25, 2),
+       ('Biscuit', 38, 2);
 
 create table users
 (

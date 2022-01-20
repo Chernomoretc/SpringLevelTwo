@@ -8,6 +8,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Collection;
 
 @Entity
 @Table(name = "products")
@@ -24,6 +25,10 @@ public class Product {
 
     @Column(name = "price")
     private Integer price;
+
+//    @ManyToOne
+//    @JoinColumn(name = "category_id")
+//    private ProductCategory category;
 
     @CreationTimestamp
     @Column(name = "created_at")
