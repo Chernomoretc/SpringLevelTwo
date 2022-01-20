@@ -30,9 +30,9 @@ public class ProductsService {
         if (partTitle != null) {
             spec = spec.and(ProductsSpecifications.titleLike(partTitle));
         }
-//        if (partCategory != null) {
-//            spec = spec.and(ProductsSpecifications.categoryLike(partCategory));
-//        }
+        if (partCategory != null) {
+            spec = spec.and(ProductsSpecifications.categoryLike(partCategory));
+        }
 
         return productsRepository.findAll(spec, PageRequest.of(page - 1, 8));
     }
