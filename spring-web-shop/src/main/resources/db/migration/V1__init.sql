@@ -1,18 +1,18 @@
---create table product_category
---(
---   id          bigserial primary key,
---   name        varchar(255) not null
---);
---
---insert into product_category (name)
---values ('meat'),
---       ('pastry');
+create table product_category
+(
+   id          bigserial primary key,
+   name        varchar(255) not null
+);
+
+insert into product_category (name)
+values ('meat'),
+       ('pastry');
 
 create table products
 (
     id           bigserial primary key,
     title        varchar(255),
---    category_id  bigint not null references product_category (id),
+    category_id  bigint not null references product_category (id),
     price        int,
     created_at   timestamp default current_timestamp,
     updated_at   timestamp default current_timestamp

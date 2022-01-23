@@ -8,11 +8,11 @@ import javax.persistence.*;
 @Data
 @Table(name = "product_category")
 public class ProductCategory {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "id")
-//    private Long id;
-//
-//    @Column(name = "name")
-//    private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
+
+    @Column(name = "name")
+    private String name;
 }
