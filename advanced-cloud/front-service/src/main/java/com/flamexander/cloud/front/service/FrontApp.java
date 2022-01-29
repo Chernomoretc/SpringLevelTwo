@@ -26,10 +26,10 @@ public class FrontApp {
         SpringApplication.run(FrontApp.class, args);
     }
 
-//    @GetMapping("/api/v1/front")
-//    public List<ProductDto> getAllProducts()
-//    {
-//        return restTemplate.getForObject("http://products-service/api/v1/products",List.class);
-//    }
+    @GetMapping("/api/v1/front")
+    public List<ProductDto> getAllProducts()
+    {
+        return restTemplate.getForObject("http://products-service/api/v1/products",List.class);
+    }
 
 }
