@@ -7,7 +7,7 @@ logging:
 server:
   port: 5555
 eureka:
-  client:
-    serviceUrl:
-      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
-      fetchRegistry: false
+#  client:
+#    serviceUrl:
+#      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+#      fetchRegistry: false
