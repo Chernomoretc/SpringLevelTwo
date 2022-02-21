@@ -2,6 +2,7 @@ package com.geekbrains.spring.web.cart.controllers;
 
 import com.geekbrains.spring.web.api.carts.CartDto;
 import com.geekbrains.spring.web.api.dto.StringResponse;
+import com.geekbrains.spring.web.api.exceptions.ResourceNotFoundException;
 import com.geekbrains.spring.web.cart.converters.CartConverter;
 import com.geekbrains.spring.web.cart.models.Cart;
 import com.geekbrains.spring.web.cart.services.CartService;
@@ -26,8 +27,15 @@ public class CartsController {
     }
 
     @GetMapping("/{uuid}/add/{productId}")
-    public void add(@RequestHeader(required = false) String username, @PathVariable String uuid, @PathVariable Long productId) {
-        cartService.addToCart(getCurrentCartUuid(username, uuid), productId);
+    public StringResponse add(@RequestHeader(required = false) String username, @PathVariable String uuid, @PathVariable Long productId) {
+        try {
+            cartService.addToCart(getCurrentCartUuid(username, uuid), productId);
+        } catch (Exception e) {
+                   return new StringResponse(e.toString());
+        }
+
+        return new StringResponse("ok");
+
     }
 
     @GetMapping("/{uuid}/decrement/{productId}")
